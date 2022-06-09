@@ -37,7 +37,7 @@ De plus, il est bon de noter que des captures peuvent être effectuées avec tcp
 
 Comme Wireshark, l'outil permet l'utilisation de nombreux filtres comme par exemple la mise en place d'un filtre pour le port 80, 25 ou 22.<br/>
 
-Une autre différence notable avec Wireshark est que tcpdump peut être utilisé pour l'analyse et la capture du trafic sur une machine distante (SSH).<br/></p>
+Une autre différence notable avec Wireshark est que tcpdump peut être utilisé pour l'analyse et la capture du trafic sur une machine distante (SSH).<br/><br/></p>
 
 <div align="center">
 <h2>2. Commandes et utilisation basique de tcpdump</h2>
