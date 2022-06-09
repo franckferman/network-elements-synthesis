@@ -48,47 +48,47 @@ Voici quelques exemples de commandes basiques pour l'utilisation de tcpdump:<br/
 Afficher la liste des interfaces disponibles:<br/>
 <code>tcpdump -D</code>
 
-<br/><br/>
+<br/>
 
 Écouter sur toutes les interfaces disponibles:<br/>
 <code>tcpdump -i any</code>
 
-<br/><br/>
+<br/>
 
 Écouter sur une interface spécifique:<br/>
 <code>tcpdump -i eth0</code>
 
-<br/><br/>
+<br/>
 
 Mode verbeux (TTL, longueur totale, vérification de la somme de contrôle des en-têtes IP et ICMP...):<br/>
 <code>tcpdump -v</code>
 
-<br/><br/>
+<br/>
 
 Mode le moins verbeux (idéal pour un rapide aperçu des échanges):<br/>
 <code>tcpdump -q</code>
 
-<br/><br/>
+<br/>
 
 Mise en place d'une limite du nombre de paquets reçue avant arrêt de la capture:<br/>
 <code>tcpdump -c 100</code>
 
-<br/><br/>
+<br/>
 
 Enregistrement dans un fichier (idéal pour analyse par la suite avec Wireshark par exemple):<br/>
 <code>tcpdump -w capture01.pcap</code>
 
-<br/><br/>
+<br/>
 
 Lire un fichier préalablement enregistré:<br/>
 <code>tcpdump -r capture01.pcap</code>
 
-<br/><br/>
+<br/>
 
 Des filtres peuvent être ajoutés pour la lecture:<br/>
 <code>tcpdump -r capture01.pcap arp</code>
 
-<br/><br/>
+<br/>
 
 <div align="center">
 Voici quelques exemples de basiques d'utilisation des filtres:<br/><br/>
