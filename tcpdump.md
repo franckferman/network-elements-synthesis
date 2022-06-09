@@ -2,7 +2,7 @@
 
 <div align="center">
   <a href="https://github.com/franckferman/network-elements-synthesis">
-    <img src="https://raw.githubusercontent.com/franckferman/network-elements-synthesis/main/img/tcpdump.png" alt="tcpdump" width="80" height="80">
+    <img src="https://raw.githubusercontent.com/franckferman/network-elements-synthesis/main/img/tcpdump.png" alt="tcpdump" width="120" height="120">
   </a>
 
 <h3 align="center">tcpdump</h3>
