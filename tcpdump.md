@@ -29,15 +29,15 @@
 
 <p>tcpdump est un outil couramment utilisé dont le but est d'effectuer des analyses et des captures du trafic sur un réseau ou entre des machines. <br/>Il permet d'écouter (sniffer) le trafic entrant/sortant sur de nombreux périphériques (Ethernet, Wi-Fi, USB...)<br/>
 
-Dans l'idée, l'outil est semblable à Wireshark mais il se différencie principalement par son utilisation s'effectuant en ligne de commande uniquement.<br/><br/>
+Dans l'idée, l'outil est semblable à Wireshark mais il se différencie principalement par son utilisation s'effectuant en ligne de commande uniquement.<br/>
 
-Son plus gros défaut, si l'on doit lui en donner un, réside probablement dans la difficulté de compréhension de la syntaxe mais une fois celle-ci suffisamment bien acquise, l'utilisation de cet outil devient rapidement un jeu d'enfant (et devient vite une alternative à Wireshark pour la réalisation de captures ou analyses sur le réseau). Cet outil est particulièrement apprécié pour sa puissance et s'installe très facilement sur les systèmes GNU/Linux.<br/><br/>
+Son plus gros défaut, si l'on doit lui en donner un, réside probablement dans la difficulté de compréhension de la syntaxe mais une fois celle-ci suffisamment bien acquise, l'utilisation de cet outil devient rapidement un jeu d'enfant (et devient vite une alternative à Wireshark pour la réalisation de captures ou analyses sur le réseau). Cet outil est particulièrement apprécié pour sa puissance et s'installe très facilement sur les systèmes GNU/Linux.<br/>
 
-De plus, il est bon de noter que des captures peuvent être effectuées avec tcpdump puis analysées par la suite avec Wireshark.<br/><br/>
+De plus, il est bon de noter que des captures peuvent être effectuées avec tcpdump puis analysées par la suite avec Wireshark.<br/>
 
-Comme Wireshark, l'outil permet l'utilisation de nombreux filtres comme par exemple la mise en place d'un filtre pour le port 80, 25 ou 22.<br/><br/>
+Comme Wireshark, l'outil permet l'utilisation de nombreux filtres comme par exemple la mise en place d'un filtre pour le port 80, 25 ou 22.<br/>
 
-Une autre différence notable avec Wireshark est que tcpdump peut être utilisé pour l'analyse et la capture du trafic sur une machine distante (SSH).<br/><br/></p>
+Une autre différence notable avec Wireshark est que tcpdump peut être utilisé pour l'analyse et la capture du trafic sur une machine distante (SSH).<br/></p>
 
 <div align="center">
 <h2>2. Commandes et utilisation basique de tcpdump</h2>
