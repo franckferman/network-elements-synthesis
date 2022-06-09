@@ -19,14 +19,14 @@
 <details>
   <summary>Table of Contents</summary>
   <ol>
-	  <li><a href="#1-présentation-de-tcpdump">Présentation de tcpdump</a></li>
-      <li><a href="#2-commandes-et-utilisation-basique-de-tcpdump">Commandes et utilisation basique de tcpdump</a></li>
-	  <li><a href="#3-demo">Démonstration - récupération d'un mot de passe en clair</a></li>
+	  <li><a href="#1-présentation-de-tcpdump">Présentation de tcpdump.</a></li>
+      <li><a href="#2-commandes-et-utilisation-basique-de-tcpdump">Commandes et utilisation basique de tcpdump.</a></li>
+	  <li><a href="#3-demo">Démonstration - récupération d'un mot de passe en clair.</a></li>
   </ol>
 </details>
 
 <div align="center">
-<h2>1. Présentation de tcpdump</h2>
+<h2>1. Présentation de tcpdump.</h2>
 
 <p>tcpdump est un outil couramment utilisé dont le but est d'effectuer des analyses et des captures du trafic sur un réseau ou entre des machines. <br/>Il permet d'écouter (sniffer) le trafic entrant/sortant sur de nombreux périphériques (Ethernet, Wi-Fi, USB...)<br/>
 
@@ -41,7 +41,7 @@ Comme Wireshark, l'outil permet l'utilisation de nombreux filtres comme par exem
 Une autre différence notable avec Wireshark est que tcpdump peut être utilisé pour l'analyse et la capture du trafic sur une machine distante (SSH).<br/><br/></p>
 
 <div align="center">
-<h2>2. Commandes et utilisation basique de tcpdump</h2>
+<h2>2. Commandes et utilisation basique de tcpdump.</h2>
 
 <div align="center">
 Voici quelques exemples de commandes basiques pour l'utilisation de tcpdump:<br/><br/>
@@ -130,6 +130,6 @@ Sniffer tout un bloc de réseau:<br/>
 <br/><br/>
 	
 <div align="center">
-<h2>3. Démonstration - récupération d'un mot de passe en clair</h2>
+<h2>3. Démonstration - récupération d'un mot de passe en clair.</h2>
 
 [![asciicast](https://asciinema.org/a/gzkltiQC0ubgH4NZVebf5hv61.svg)](https://asciinema.org/a/gzkltiQC0ubgH4NZVebf5hv61)
