@@ -96,34 +96,32 @@ Voici quelques exemples de basiques d'utilisation des filtres:<br/><br/>
 Filtre un hôte/une adresse IP:<br/>
 <code>tcpdump -i eth0 -v host 192.168.0.1</code>
 
-<br/><br/>
+<br/>
 
 Traffic destiné à une adresse IP bien précise (en destination), similaire au filtre ip.dst de Wireshark:<br/>
 <code>tcpdump -i eth0 -v dst 192.168.0.1</code>
 
-<br/><br/>
+<br/>
 
 Traffic destiné à une adresse IP bien précise (source), similaire au filtre ip.src de Wireshark:<br/>
 <code>tcpdump -i eth0 -v src 192.168.0.1</code>
 
-<br/><br/>
+<br/>
 
 Filtrer un protocole (ARP pour l'exemple):<br/>
 <code>tcpdump -i eth0 arp</code>
 
-<br/><br/>
+<br/>
 
 Filtrer un port (22 pour l'exemple):<br/>
 <code>tcpdump -i eth0 -port 22</code>
 
-<br/><br/>
+<br/>
 
 Filtrer plusieurs conditions:<br/>
 <code>tcpdump -i eth0 -v dst 192.168.0.1 && src 127.0.0.1 icmp</code>
 
-<br/><br/>
+<br/>
 
 Sniffer tout un bloc de réseau:<br/>
 <code>tcpdump -i eth0 -v net 192.168.0.1/24</code>
-
-<br/><br/>
