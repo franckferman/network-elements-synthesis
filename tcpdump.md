@@ -21,6 +21,7 @@
   <ol>
 	  <li><a href="#1-présentation-de-tcpdump">Présentation de tcpdump</a></li>
       <li><a href="#2-commandes-et-utilisation-basique-de-tcpdump">Commandes et utilisation basique de tcpdump</a></li>
+	  <li><a href="#3-demo">Démonstration de récupération d'un mot de passe en clair</a></li>
   </ol>
 </details>
 
@@ -125,3 +126,8 @@ Filtrer plusieurs conditions:<br/>
 
 Sniffer tout un bloc de réseau:<br/>
 <code>tcpdump -i eth0 -v net 192.168.0.1/24</code>
+	
+<div align="center">
+<h2>3. Présentation de tcpdump</h2>
+
+[![asciicast](https://asciinema.org/a/gzkltiQC0ubgH4NZVebf5hv61.svg)](https://asciinema.org/a/gzkltiQC0ubgH4NZVebf5hv61)
