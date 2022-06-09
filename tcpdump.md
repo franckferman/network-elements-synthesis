@@ -19,8 +19,8 @@
 <details>
   <summary>Table of Contents</summary>
   <ol>
-	  <li><a href="#1-présentation-de-tcpdump">1. Présentation de tcpdump</a></li>
-      <li><a href="#2-commandes-et-utilisation-basique-de-tcpdump">2. Commandes et utilisation basique de tcpdump</a></li>
+	  <li><a href="#1-présentation-de-tcpdump">Présentation de tcpdump</a></li>
+      <li><a href="#2-commandes-et-utilisation-basique-de-tcpdump">Commandes et utilisation basique de tcpdump</a></li>
   </ol>
 </details>
 
