@@ -114,7 +114,7 @@ Filtrer un protocole (ARP pour l'exemple):<br/>
 <br/>
 
 Filtrer un port (22 pour l'exemple):<br/>
-<code>tcpdump -i eth0 -p 22</code>
+<code>tcpdump -i eth0 port 22</code>
 
 <br/>
 
