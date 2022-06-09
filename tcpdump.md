@@ -16,6 +16,15 @@
   </p>
 </div>
 
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#1-présentation-de-tcpdump">1. Présentation de tcpdump</a>
+      <a href="#2-commandes-et-utilisation-basique-de-tcpdump">2. Commandes et utilisation basique de tcpdump</a>
+  </ol>
+</details>
+
 <div align="center">
 <h2>1. Présentation de tcpdump</h2>
 
