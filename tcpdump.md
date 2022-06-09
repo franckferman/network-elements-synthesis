@@ -27,7 +27,7 @@
 <div align="center">
 <h2>1. Présentation de tcpdump</h2>
 
-<p>tcpdump est un outil couramment utilisé dont le but est d'effectuer des analyses et des captures du trafic sur un réseau ou entre des machines. <br/>Il permet d'écouter (sniffer) le trafic entrant/sortant sur de nombreux périphériques (Ethernet, Wi-Fi, USB...)<br/><br/>
+<p>tcpdump est un outil couramment utilisé dont le but est d'effectuer des analyses et des captures du trafic sur un réseau ou entre des machines. <br/>Il permet d'écouter (sniffer) le trafic entrant/sortant sur de nombreux périphériques (Ethernet, Wi-Fi, USB...)<br/>
 
 Dans l'idée, l'outil est semblable à Wireshark mais il se différencie principalement par son utilisation s'effectuant en ligne de commande uniquement.<br/><br/>
 
