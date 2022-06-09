@@ -127,6 +127,8 @@ Filtrer plusieurs conditions:<br/>
 Sniffer tout un bloc de réseau:<br/>
 <code>tcpdump -i eth0 -v net 192.168.0.1/24</code>
 	
+<br/><br/>
+	
 <div align="center">
 <h2>3. Démonstration - récupération d'un mot de passe en clair</h2>
 
