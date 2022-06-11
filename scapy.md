@@ -2,7 +2,7 @@
 
 <div align="center">
   <a href="https://github.com/franckferman/network-elements-synthesis">
-    <img src="https://raw.githubusercontent.com/franckferman/network-elements-synthesis/main/img/scapy.png" alt="Scapy" width="400" height="200">
+    <img src="https://raw.githubusercontent.com/franckferman/network-elements-synthesis/main/img/scapy.png" alt="Scapy" width="200" height="200">
   </a>
 
 <h3 align="center">Scapy</h3>
