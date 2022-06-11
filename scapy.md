@@ -8,7 +8,7 @@
 <h3 align="center">Scapy</h3>
 
   <p align="center">
-    La manipulation de paquets avancée avec Scapy.
+    La manipulation de paquets avec Scapy.
     <br/>
     <a href="https://scapy.net/"><strong>Lien vers le site officiel de Scapy »</strong></a>
     <br/>
@@ -46,7 +46,7 @@ Bien entendu, des attaques plus basiques sont possibles vous pouvez par exemple 
 
 Comme dit précédemment, des fonctions basiques sont également disponibles, Scapy vous permet de sniffer le trafic simplement (à l'instar d'outils comme tshark ou tcpdump).<br/>
 
-<code>>>> x=sniff(filter="icmp")</code>
+<code>>>> x=sniff(filter="icmp")</code><br>
 <code>>>> x.show()</code><br/>
 
 Pour en revenir à ce qui fait sa particularité, vous avez par exemple la possibilité de forger vos propres paquets (à partir de la couche 2), envoyer des trames invalides, casser complètement les règles du modèle TCP/IP (cf. David Bombal)...<br/>
@@ -100,7 +100,9 @@ Ces deux exemples montrent la puissance de Scapy, si celle-ci est utilisée avec
 <div align="center">
 <h2>3. Utilisation de Scapy</h2>
 
-<p>Pour être plus précis sur ce qu'est réellement Scapy, c'est à la fois un interpréteur de commande (basé sur celui de Python) et une bibliothèque.<br/>
+<p>Scapy est à la fois un interpréteur de commande (basé sur celui de Python) et une bibliothèque.<br/>
+
+Je 
 
 Il existe des fonctions qui permettent de lire et d’écrire des fichiers pcap qui contiennent des captures de trafic réseau, des fonctions d’analyse et de construction des paquets réseaux (à partir de la couche 2), des fonctions d’envoi de ces paquets et de réception des paquets réponses associés, des fonctions d’écoute (sniffing) du trafic réseau et des fonctions de génération de représentations graphiques (courbes d’un ensemble de valeurs calculées, graphe d’échanges entre matériels, graphes de la topologie d’un réseau).<br/>
 
