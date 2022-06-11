@@ -2,7 +2,7 @@
 
 <div align="center">
   <a href="https://github.com/franckferman/network-elements-synthesis">
-    <img src="https://raw.githubusercontent.com/franckferman/network-elements-synthesis/main/img/scapy.png" alt="Scapy" width="400" height="200">
+    <img src="https://raw.githubusercontent.com/franckferman/network-elements-synthesis/main/img/scapy.png" alt="Scapy" width="200" height="200">
   </a>
 
 <h3 align="center">Scapy</h3>
@@ -67,7 +67,7 @@ La commande help(traceroute).<br/>
 <code>Instant TCP traceroute.</code>
 <code>traceroute(target, dport=80, minttl=1, maxttl=30, sport=<RandShort>, l4=None, filter=None, timeout=2</code><br/>
 
-Pour résumé, la seule contrainte réside dans la nécessité pour l'utilisateur de posséder une certaine expertise pour pouvoir manipuler cet outil au mieux. Scapy me paraît plus difficile à prendre en main que les outils clés en main citée précédemment mais celui-ci permet malgré tout d'aller amplement plus loin en matière de manipulation.</p><br/><br/>
+Pour résumé, la seule contrainte réside dans la nécessité pour l'utilisateur de posséder une certaine expertise pour pouvoir manipuler cet outil au mieux. Scapy me paraît plus difficile à prendre en main que les outils clés en main citée précédemment mais celui-ci permet malgré tout d'aller amplement plus loin en matière de manipulation.</p><br/>
 
 <div align="center">
 <h2>2. Une communauté grandissante d'experts</h2>
@@ -95,7 +95,7 @@ David Bombal, dans l'une de ses vidéos, montre comment il est possible, avec Sc
 - Injection d'une fausse route — https://github.com/davidbombal/scapy/blob/main/bgp-add-fake-routes.py.<br/>
 - Réalisation d'une attaque par déni de service — https://github.com/davidbombal/scapy/blob/main/bgp-dos-reset-neighbors.py.<br/>
 
-Ces deux exemples montrent la puissance de Scapy, si celle-ci est utilisée avec suffisamment de maitrise.</p><br/><br/>
+Ces deux exemples montrent la puissance de Scapy, si celle-ci est utilisée avec suffisamment de maitrise.</p><br/>
 
 <div align="center">
 <h2>3. Utilisation de Scapy</h2>
