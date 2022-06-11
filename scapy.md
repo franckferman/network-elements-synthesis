@@ -19,8 +19,8 @@
 <details>
   <summary>Table of Contents</summary>
   <ol>
-	  <li><a href="#1-présentation-de-Scapy">Présentation très générale de Scapy</a></li>
-    <li><a href="#2-une-forte-communaute">Une forte communauté, quelques exemples de scripts</a></li>
+	  <li><a href="#1-présentation-de-Scapy">Présentation de Scapy</a></li>
+    <li><a href="#2-une-forte-communaute">Une forte communauté</a></li>
       <li><a href="#3-Scapy-utilisation">Utilisation de Scapy</a></li>
   </ol>
 </details>
