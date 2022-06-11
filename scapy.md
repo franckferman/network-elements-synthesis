@@ -2,7 +2,7 @@
 
 <div align="center">
   <a href="https://github.com/franckferman/network-elements-synthesis">
-    <img src="https://raw.githubusercontent.com/franckferman/network-elements-synthesis/main/img/scapy.png" alt="Scapy" width="200" height="200">
+    <img src="https://raw.githubusercontent.com/franckferman/network-elements-synthesis/main/img/scapy.png" alt="Scapy" width="400" height="200">
   </a>
 
 <h3 align="center">Scapy</h3>
@@ -19,98 +19,83 @@
 <details>
   <summary>Table of Contents</summary>
   <ol>
-	  <li><a href="#1-présentation-de-Scapy">Présentation de Scapy</a></li>
-    <li><a href="#2-une-forte-communaute">Une forte communauté</a></li>
-      <li><a href="#3-Scapy-utilisation">Utilisation de Scapy</a></li>
+	  <li><a href="#1-scapy-overview">Présentation de Scapy</a></li>
+    <li><a href="#2-strong-community">Une communauté grandissante d'experts</a></li>
+      <li><a href="#3-scapy-usage">Utilisation de Scapy</a></li>
   </ol>
 </details>
 
 <div align="center">
-<h2>1. Présentation très générale de Scapy</h2>
+<h2>1. Présentation de Scapy</h2>
 
-<p>Scapy est un outil extrêmement puissant et utile permettant de nombreuses actions telles que la manipulation de paquets, la capture du trafic (comme le fait tcpdump ou wireshark par exemple), il est capable de réaliser du fingerprinting, faire de l'analyse en tous genres, de forger, de recevoir et d'emettre des paquets (et/ou) des trames vers des infrastructures avec une multitude de protocoles réseaux différents (IP, TCP, UDP, ARP, SNMP, ICMP, DNS, DHCP...)<br/>
+<p>Scapy est un outil extrêmement puissant permettant de nombreuses actions telles que la manipulation de paquets, la capture (sniffing) du trafic (comme le fait tcpdump ou wireshark par exemple), il est capable de réaliser du fingerprinting (comme peut le faire p0f), faire de l'analyse en tous genres, forger, recevoir et emettre des paquets et des trames avec une multitude de protocoles réseaux différents (IP, TCP, UDP, ARP, SNMP, ICMP, DNS, DHCP...)<br/>
 
-À lui seul, il est capable de remplacer plus de 80% des outils de sécurité ou d'analyse du réseau tel que nmap, arpspoof, tcpump, tshark, p0f et des commandes/outils telles que ping, traceroute...<br/>
+À lui seul, il est capable de remplacer de nombreux outils et utilitaires de sécurité et d'analyses tels que nmap, arpspoof, arping, tcpump, tshark, p0f, hping, ping, traceroute...<br/>
 
-Et dans certains cas, Scapy a un bien plus gros potentiel (que ces derniers outils cités précédemment).<br/>
+À la différence près que Scapy possède un bien meilleur potentiel que ces derniers. Bien évidemment, un meilleur potentiel ne signifie pas nécessairement que celui-ci devrait remplacer tous ces outils. À vrai dire, tout dépend véritablement des besoins de l'utilisateur. L'utilisation des outils précédemment cités peut dans de nombreux cas être utilisées sans Scapy et répond amplement aux besoins de l'utilisateur.<br/>
 
-En dehors du fait que la plupart des outils se limitent à des protocoles très basiques (TCP/UDP/ICMP), je dirais que la contrainte principale de ces outils (cités précédemment), réside dans le fait qu'ils ne vous permettent généralement pas de faire autre chose que ce qui a été pensé par le développeur de l'outil. Ces outils ont été construits dans un but bien précis et ne s'écartent que très peu de celui-ci.<br/>
+En revanche, Scapy, en plus de permettre une centralisation de ces outils, permet d'aller bien plus loin techniquement parlant. La plupart des outils se limitent à des protocoles très basiques (TCP/UDP/ICMP), ce qui n'est pas le cas de Scapy. De plus, la contrainte principale de ces outils est qu'ils sont particulièrement restreints. Ils ne permettent généralement pas de faire autre chose que ce qui a été pensé par le développeur.<br/>
 
-Un programme permettant de réaliser un empoisonnement du cache ARP (arpspoof par exemple), ne vous permettra le plus souvent pas d'associer cette attaque avec d'autres.<br/>
-
-Alors qu'avec Scapy, vous avez un contrôle total sur ce que vous faites, les paquets que vous forgez, les attaques menées, vous êtes le véritable maitre à bord. La seule limite est votre créativité ainsi que votre expertise du réseau.<br/>
-
-Nous pouvons par exemple très facilement associer une attaque de type empoisonnement de cache ARP avec du VLAN hopping (double tagging en l'occurence):<br/>
+À titre de comparaison, typiquement, Scapy peut associer différentes attaques. Par exemple, il peut associer une attaque de type ARP cache poisoning avec du VLAN hopping.<br/>
 
 <code>>>> send( Ether(dst=XX-XX-XX-XX-XX)/Dot1Q(vlan=1)/Dot1Q(vlan=2) /ARP(op="who-has", psrc=gateway, pdst=client), inter=RandNum(10,40), loop=1 )</code><br/>
 
-Bien entendu, des attaques plus basiques sont possibles, tout aussi simplement:<br/>
+Bien entendu, des attaques plus basiques sont possibles vous pouvez par exemple un simple empoisonnement de cache ARP de cette manière.<br/>
 
-Pour effectuer un simple empoisonnement de cache ARP par exemple:<br/>
+<code>>>> arpcachepoison(target, victim, interval=60)</code><br/>
 
-<code>>>> arpcachepoison(target, victim, interval=60)</code>
-
-<br/>
-
-Comme dit précédemment, Scapy vous permet de sniffer le trafic, à l'instar d'outils comme tshark ou tcpdump.<br/>
+Comme dit précédemment, des fonctions basiques sont également disponibles, Scapy vous permet de sniffer le trafic simplement (à l'instar d'outils comme tshark ou tcpdump).<br/>
 
 <code>>>> x=sniff(filter="icmp")</code>
-<code>>>> x.show()</code>
+<code>>>> x.show()</code><br/>
 
-<br/>
+Pour en revenir à ce qui fait sa particularité, vous avez par exemple la possibilité de forger vos propres paquets (à partir de la couche 2), envoyer des trames invalides, casser complètement les règles du modèle TCP/IP (cf. David Bombal)...<br/>
 
-Contrairement à de nombreux outils comme Nmap, il décode mais n'interprète pas. Ce qui permet de ne pas se limiter à l'interprétation d'un programme avoir la possibilité de réaliser une analyse poussée (de ce qui s'est réellement passé sur le réseau).<br/>
+Pour résumé simplement, avec Scapy, vous êtes le véritable maitre à bord et la seule limite est votre créativité ainsi que votre expertise du réseau.<br/>
 
-La commande help() peut être utilisée pour avoir des informations sur des fonctions, help(traceroute) ou help(fuzz) par exemple<br/> 
+Contrairement à une certaine partie des nombreux outils cités précédemment, Scapy décode mais n'interprète pas. Ce qui, à première vue peut paraître être un inconvénient, est en réalité dans certains cas un réel atout puisque cela permet de ne pas se limiter à l'interprétation d'un programme et avoir la possibilité de réaliser une analyse poussée de ce qui se passe réellement. Analyse qui sera plus fastidieuse et demandera assurément plus de compétences techniques mais qui, si elle est correctement réalisée, sera bien plus précise.<br/>
 
-Scapy permet également de faire du fuzzing.<br/>
+Je peux utiliser la commande lsc() pour afficher les fonctions offertes par Scapy, et la commande help() pour la compréhension des paramètres attendus par celle-ci.<br/>
 
->>> y=fuzz(IP())<br/>
+Par exemple, la commande help(arpcachepoison) me permet de voir la liste des paramètres attendus et m'affiche la description de la fonction.<br/>
 
-Si j'effectue y.show(), nous constatons que l'ensemble l'ensemble des valeurs ont été rendus aléatoires.<br/>
+<code>Poison target's cache with (your MAC,victim's IP) couple.</code>
+<code>arpcachepoison(target, victim, interval=60)</code><br/>
 
-<code>
->>> y.show()
-###[ IP ]###
-  version= <RandNum>
-  ihl= None
-  tos= <RandByte>
-  len= None
-  id= <RandShort>
-  flags= DF
-  frag= <RandNum>
-  ttl= <RandByte>
-  proto= <RandByte>
-</code><br/>
+La commande help(traceroute).<br/>
 
-Pour finir cette introduction, je dirais que la seule contraintre réside dans le fait que Scapy est logiquement plus difficile à prendre en main que les outils cités précédemment (clés en main) mais encore une fois, il permet également d'aller beaucoup plus loin.
+<code>Instant TCP traceroute.</code>
+<code>traceroute(target, dport=80, minttl=1, maxttl=30, sport=<RandShort>, l4=None, filter=None, timeout=2</code><br/>
 
-<br/><br/>
+Pour résumé, la seule contrainte réside dans la nécessité pour l'utilisateur de posséder une certaine expertise pour pouvoir manipuler cet outil au mieux. Scapy me paraît plus difficile à prendre en main que les outils clés en main citée précédemment mais celui-ci permet malgré tout d'aller amplement plus loin en matière de manipulation.</p><br/><br/>
 
 <div align="center">
-<h2>2. Une forte communauté, quelques exemples</h2>
+<h2>2. Une communauté grandissante d'experts</h2>
 
-Possédant une très forte communauté, il existe de très nombreuses ressources sur Internet, et de nombreux scripts sur Github que vous pourrez reprendre et personnaliser en fonction de vos besoins.<br/>
+<p>Scapy est un outil particulièrement reconnu et populaire, il possède plus de 7000 étoiles et plus de 300 contributeurs sur Github, et est utilisé et reconnu par de nombreux experts (dont des experts de l'ANSSI, l'un des contributeurs les plus importants, Monsieur Guillaume Valadon, est par ailleurs un doctorant et ancien de l'ANSSI...)<br/>
 
-Typiquement, le repository Github de David BOMBAL (/davidbombal/scapy) offre une multitude de scripts particulièrement intéressants et montre quelques exemples concrets d'utilisation de Scapy, par exemple:<br/>
+Scapy s'est fait un nom dans le milieu et est reconnu par l'ensemble des experts du domaine de la sécurité et des réseaux. À ce titre, au vu de sa popularité, le fait qu'il soit libre, soutenu et maintenu par des experts, à créer un certain engouement et par conséquent une communauté.<br/>
 
--  L'attaque du protocole BGP:<br/>
+Grâce à sa popularité, il existe de très nombreuses ressources sur Internet, de forums sur lesquels vous pourrez demander de l'aide en cas de besoin, de nombreuses documentations, de nombreux tutoriels, de nombreux scripts sur Github, que vous pourrez reprendre et personnaliser en fonction de vos besoins...<br/>
 
-Quand vous communiquer sur Internet (en allant sur le site de l'ANSSI par exemple), le choix du chemin à emprunter (sur le WAN) jusqu'à ce celui-ci sera, entre autres, géré par le protocole de routage BGP.<br/>
+Pour vous donner un exemple concret, David Bombal a mis à disposition de nombreux scripts particulièrement intéressants. Il offre une multitude de scripts et montre des exemples concrets d'utilisation de Scapy, par exemple:<br/>
 
-Le protocole BGP est un protocole de type EGP (Exterior gateway protocol), c'est-à-dire un protocole de routage externe (à l'inverse de protocoles de routages tels que RIP ou OSPF, qui eux, sont des protocoles de routage internes, de type IGP) et c'est ce protocole est utilisé pour communiquer entres les différents AS (AS généralement sous le contrôle des fournisseurs d'accès à Internet).<br/>
+- L'attaque du protocole BGP.<br/>
 
-Les AS sont comparables à des bureaux de poste. Le courrier va de bureau de poste en bureau de poste jusqu'à ce qu'il atteigne la bonne ville, et le bureau de poste de cette ville distribuera alors le courrier dans cette ville.<br/>
+Quand vous communiquez sur Internet, par exemple, quand vous vous connectez au site Web de l'ANSSI, vous traversez Internet, et pour cela, vous empruntez des chemins. Et bien, le choix du chemin à emprunter jusqu'à celui-ci sera, entre autres, géré par le protocole de routage BGP.<br/>
 
-N'étant n'est pas le sujet principal, disons simplement qu'Internet repose en grande partie sur BGP.<br/>
+Le protocole BGP est un protocole de type EGP (Exterior gateway protocol), c'est-à-dire un protocole de routage externe (à l'inverse des protocoles de routages internes de type IGP tels que RIP ou OSPF par exemple), c'est ce protocole qui est utilisé pour communiquer entre les différents AS (AS, généralement sous le contrôle des fournisseurs d'accès à Internet).<br/>
 
-David BOMBAL montre comment il est possible, avec Scapy, de réaliser des attaques sur ce protocole.<br/>
+Les AS (pour Autonomous system) sont comparables à des bureaux de poste. Le courrier va de bureau de poste en bureau de poste jusqu'à ce qu'il atteigne la bonne ville, et le bureau de poste de cette ville distribuera alors le courrier dans cette ville.<br/>
 
-- Injection d'une fausse route BGP (https://github.com/davidbombal/scapy/blob/main/bgp-add-fake-routes.py).<br/>
+N'étant pas le sujet principal de mon présent document, pour résumé, disons simplement qu'Internet repose et dépend en grande partie de BGP.<br/>
 
-- Effectuer une attaque DOS (https://github.com/davidbombal/scapy/blob/main/bgp-dos-reset-neighbors.py).<br/>
+David Bombal, dans l'une de ses vidéos, montre comment il est possible, avec Scapy, de réaliser des attaques sur ce protocole. Il a également publié le code source de ses scripts sur Github:<br/>
 
-Il s'agit de deux exemples parmi tant d'autres de tout que vous pouvez faire avec Scapy.<br/><br/>
+- Injection d'une fausse route — https://github.com/davidbombal/scapy/blob/main/bgp-add-fake-routes.py.<br/>
+- Réalisation d'une attaque par déni de service — https://github.com/davidbombal/scapy/blob/main/bgp-dos-reset-neighbors.py.<br/>
+
+Ces deux exemples montrent la puissance de Scapy, si celle-ci est utilisée avec suffisamment de maitrise.</p><br/><br/>
 
 <div align="center">
 <h2>3. Utilisation de Scapy</h2>
