@@ -95,54 +95,109 @@ David Bombal, dans l'une de ses vidéos, montre comment il est possible, avec Sc
 - Injection d'une fausse route — https://github.com/davidbombal/scapy/blob/main/bgp-add-fake-routes.py.<br/>
 - Réalisation d'une attaque par déni de service — https://github.com/davidbombal/scapy/blob/main/bgp-dos-reset-neighbors.py.<br/>
 
-Ces deux exemples montrent la puissance de Scapy, si celle-ci est utilisée avec suffisamment de maitrise.</p><br/>
+Ces deux exemples montrent la puissance de Scapy, si celui-ci est utilisé avec une suffisamment bonne maitrise de l'outil et du réseau.</p><br/>
 
 <div align="center">
 <h2>3. Utilisation de Scapy</h2>
 
-<p>Scapy est à la fois un interpréteur de commande (basé sur celui de Python) et une bibliothèque.<br/>
+<p>Scapy est à la fois un interpréteur de commandes (basé sur celui de Python) et une bibliothèque.<br/>
 
-Je 
-
-Il existe des fonctions qui permettent de lire et d’écrire des fichiers pcap qui contiennent des captures de trafic réseau, des fonctions d’analyse et de construction des paquets réseaux (à partir de la couche 2), des fonctions d’envoi de ces paquets et de réception des paquets réponses associés, des fonctions d’écoute (sniffing) du trafic réseau et des fonctions de génération de représentations graphiques (courbes d’un ensemble de valeurs calculées, graphe d’échanges entre matériels, graphes de la topologie d’un réseau).<br/>
-
-Pour pouvoir utiliser les fonctions de Scapy dans votre programme Python il vous suffit simplement d'importer la bibliothèque Scapy.<br/>
-
-Mais vous pouvez également utiliser Scapy en mode interactif (interpréteur de commande) ce qui est très utile pouvoir tester rapidement des instructions sans avoir à écrire de programme au préalable.<br/>
+Le mode interpréteur de commandes (appelé également interactif) est particulièrement utile pour effectuer des tests sans avoir à écrire un programme au préalable ou pour la réalisation de taches basiques ne nécessitant pas nécessairement le développement d'un programme.<br/>
 
 Une fois dans ce mode interactif, vous pouvez entrer la commande ls() pour afficher la liste des protocoles que sait gérer Scapy et lsc() pour afficher la liste des commandes.<br/>
 
-La commande ls() peut également être utilisée en renseignant un protocole, par exemple ls(IP), ce qui va nous permettre d'afficher la liste des possibilités (paramètres) offertes par celui-ci.<br/>
+La commande ls() peut être utilisée en renseignant un protocole, par exemple ls(IP), ce qui va nous permettre d'afficher la liste des paramètres attribuables.<br/>
 
-- Un exemple concret :<br/>
+- Effectuons un exemple concret:<br/>
 
-Déclarons une variable X auquel nous allons attribuer le protocole souhaité (l'opérateur / est utilisé pour lier les couches entre elles).<br/>
+Nous pouvons jouer avec la couche 2 et préparer une trame Ethernet.<br/>
 
->>>x=IP()/TCP()
+<code>>>> Layer2=Ether()</code><br/>
 
-Nous pouvons vérifier les paramètres attribuables.<br/>
+Affichons la liste des paramètres.<br/>
 
->>> ls(x)
-version    : BitField  (4 bits)                  = 4               (4)
-ihl        : BitField  (4 bits)                  = None            (None)
-tos        : XByteField                          = 0               (0)
-len        : ShortField                          = None            (None)
-id         : ShortField                          = 1               (1)
-flags      : FlagsField  (3 bits)                = <Flag 0 ()>     (<Flag 0 ()>)
-frag       : BitField  (13 bits)                 = 0               (0)
-ttl        : ByteField                           = 64              (64)
-proto      : ByteEnumField                       = 0               (0)
-chksum     : XShortField                         = None            (None)
-src        : SourceIPField                       = '127.0.0.1'     (None)
-dst        : DestIPField                         = '127.0.0.1'     (None)
-options    : PacketListField                     = []              ([])
+<code>>>> ls(Layer2)<br/>
+<code>dst        : DestMACField                        = 'ff:ff:ff:ff:ff:ff' (None)</code><br/>
+<code>src        : SourceMACField                      = '00:15:5d:ea:57:71' (None)</code><br/>
+<code>type       : XShortEnumField                     = 36864           (36864)</code><br/>
 
-Attribuons les valeurs qui nous intéressent.<br/>
+Vous pouvez constater que des valeurs par défaut sont automatiquement remplies par Scapy. Bien entendu, celles-ci peuvent être modifiées à notre guise.<br/>
 
->>> x.src="127.0.0.1"
->>> x.dst="franckferman.fr"
->>> x.ttl=32
+Pour l'exemple, je peux spoofer mon adresse MAC source.<br/>
 
-Nous pouvons envoyer le paquet.<br/>
+<code>>>> Layer2.src="aa:bb:cc:dd:ee:ff"</code><br/>
 
->>> send(x)
+Cela n'a aucun sens mais si j'en ai l'envie, je peux envoyer dès maintenant cette trame sur le réseau.<br/>
+
+<code>>>> sendp(Layer2)</code><br/>
+
+En l'occurrence, la raison pour laquelle je réalise cette action est pour faire comprendre que l'on a bel et bien un contrôle total sur la génération de paquets/trames (même malformés). En effet, si vous sniffez votre trafic avec Wireshark par exemple, vous verrez que la trame est considérée comme étant malformé, mais ce qui compte, c'est que celle-ci passe tout de même à travers le réseau et est tout de même générée.<br/>
+
+Pour information, la commande sendp est différente de la commande send.<br/>
+
+La fonction send() envoie les paquets au niveau de la couche 3 alors que la commande sendp() fonctionnera au niveau de la couche 2.<br/>
+
+Je vais dès maintenant déclarer la variable pour mon paquet.<br/>
+
+<code>>>> Layer3=IP()</code><br/>
+
+<code>>>> ls(IP)</code><br/>
+
+<code>version    : BitField  (4 bits)                  = (4)</code><br/>
+<code>ihl        : BitField  (4 bits)                  = (None)</code><br/>
+<code>tos        : XByteField                          = (0)</code><br/>
+<code>len        : ShortField                          = (None)</code><br/>
+<code>id         : ShortField                          = (1)</code><br/>
+<code>flags      : FlagsField  (3 bits)                = (<Flag 0 ()>)</Flag></code><br/>
+<code>frag       : BitField  (13 bits)                 = (0)</code><br/>
+<code>ttl        : ByteField                           = (64)</code><br/>
+<code>proto      : ByteEnumField                       = (0)</code><br/>
+<code>chksum     : XShortField                         = (None)</code><br/>
+<code>src        : SourceIPField                       = (None)</code><br/>
+<code>dst        : DestIPField                         = (None)</code><br/>
+<code>options    : PacketListField                     = ([])</code><br/>
+
+Je vais remettre mon adresse mac par défaut à la couche 2.<br/>
+
+<code>>>> Layer2.src="00:15:5d:ea:57:71"</code><br/>
+
+Maintenant, attribuons une adresse de destination.<br/>
+
+<code>>>> Layer3.dst="172.18.24.143"</code><br/>
+
+Je vais en quelque sorte encapsuler mes couches avec l'opérateur '/'.<br/>
+
+Pour vous montrer d'autres types de commandes utiles, je vais utiliser srploop() plutôt que send() ou sendp() déjà vu précédemment.<br/>
+
+srploop() est une boucle qui va envoyer le paquet (à partir de la couche 2 et imprimer la réponse.<br/>
+
+<code>>>> srploop(Layer2/Layer3/ICMP())</code><br/>
+
+<code>RECV 1: Ether / IP / ICMP 172.18.24.143 > 172.18.24.142 echo-reply 0</code><br/>
+<code>RECV 1: Ether / IP / ICMP 172.18.24.143 > 172.18.24.142 echo-reply 0</code><br/>
+<code>RECV 1: Ether / IP / ICMP 172.18.24.143 > 172.18.24.142 echo-reply 0</code><br/>
+<code>RECV 1: Ether / IP / ICMP 172.18.24.143 > 172.18.24.142 echo-reply 0</code><br/>
+
+Comme dit précédemment, je peux, si je le souhaite casser complètement les codes.<br/>
+
+<code>>>> srploop(Layer2/Layer3/Layer3/Layer3/ICMP())</code><br/>
+
+Pour continuer notre démonstration initiale, ajoutons une couche 4.<br/>
+
+<code>>>> Layer4=TCP()</code><br/>
+
+<code>>>> ls(Layer4)</code><br/>
+
+<code>sport      : ShortEnumField                      = 20              (20)</code><br/>
+<code>dport      : ShortEnumField                      = 80              (80)</code><br/>
+<code>seq        : IntField                            = 0               (0)</code><br/>
+<code>ack        : IntField                            = 0               (0)</code><br/>
+<code>dataofs    : BitField  (4 bits)                  = None            (None)</code><br/>
+<code>reserved   : BitField  (3 bits)                  = 0               (0)</code><br/>
+<code>flags      : FlagsField  (9 bits)                = <Flag 2 (S)>    (<Flag 2 (S)>)</code><br/>
+<code>window     : ShortField                          = 8192            (8192)</code><br/>
+<code>chksum     : XShortField                         = None            (None)</code><br/>
+<code>urgptr     : ShortField                          = 0               (0)</code><br/>
+<code>options    : TCPOptionsField                     = []              (b'')</code><br/>
+
+Ayant décrit suffisamment d'actions et ayant fourni de nombreuses explications, je ne pense pas qu'il soit nécessaire d'aller plus loin.
