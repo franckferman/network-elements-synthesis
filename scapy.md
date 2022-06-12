@@ -234,4 +234,4 @@ Voici l'aperçu final du programme, celui-ci est bien entendu disponible sur mon
 
 [![asciicast](https://asciinema.org/a/KOZ73YzWUa6Hc9RG5ldZ28DqR.svg)](https://asciinema.org/a/KOZ73YzWUa6Hc9RG5ldZ28DqR)
 
-Pour conclure, nous avons pu voir que le potentiel de Scapy est considérable et il repose majoritairement sur les compétences de l'utilisateur qui l'utilise.</p>
+Pour conclure, nous avons pu voir que le potentiel de Scapy est considérable et il repose majoritairement sur les compétences de l'utilisateur qui l'utilise.</p></br>
