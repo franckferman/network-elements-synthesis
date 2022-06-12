@@ -8,11 +8,11 @@
 <h3 align="center">tcpdump</h3>
 
   <p align="center">
-    L'analyse de paquets depuis votre terminal.
+    L'analyse de trafic en ligne de commande.
     <br/>
     <a href="https://www.tcpdump.org/"><strong>Lien vers le site officiel de tcpdump »</strong></a>
     <br/>
-	<br/>
+	  <br/>
   </p>
 </div>
 
@@ -28,108 +28,114 @@
 <div align="center">
 <h2>1. Présentation de tcpdump</h2>
 
-<p>tcpdump est un outil couramment utilisé dont le but est d'effectuer des analyses et des captures du trafic sur un réseau ou entre des machines. <br/>Il permet d'écouter (sniffer) le trafic entrant/sortant sur de nombreux périphériques (Ethernet, Wi-Fi, USB...)<br/>
+<p>tcpdump est un outil couramment utilisé et particulièrement apprécié par sa puissance, dont le but est d'effectuer des captures et une analyse du trafic sur une interface réseau.<br/>
 
-Dans l'idée, l'outil est semblable à Wireshark mais il se différencie principalement par son utilisation s'effectuant en ligne de commande uniquement.<br/>
+Il permet d'écouter (sniffer) le trafic entrant/sortant sur de nombreux périphériques (Ethernet, Wi-Fi, USB...)<br/>
 
-Son plus gros défaut, si l'on doit lui en donner un, réside probablement dans la difficulté de compréhension de la syntaxe mais une fois celle-ci suffisamment bien acquise, l'utilisation de cet outil devient rapidement un jeu d'enfant (et devient vite une alternative à Wireshark pour la réalisation de captures ou analyses sur le réseau). Cet outil est particulièrement apprécié pour sa puissance et s'installe très facilement sur les systèmes GNU/Linux.<br/>
+Dans l'idée, l'outil est semblable à Wireshark mais se différencie principalement de par son utilisation en ligne de commande uniquement à l'instar de tshark (mais à l'inverse de Wireshark, qui lui, dispose d'une interface graphique).<br/>
 
-De plus, il est bon de noter que des captures peuvent être effectuées avec tcpdump puis analysées par la suite avec Wireshark.<br/>
+Comme Wireshark, tcpdump permet l'utilisation de filtres. Ce système de filtrage peut être très utile pour limiter l'obtention d'un trop grand nombre d'informations dans vos captures. En effet, un trop grand nombre d'informations pourrait drastiquement compliquer la recherche de l'information que vous désirez. Ces filtres peuvent aider à cibler les informations souhaitées. De plus, ces filtres peuvent vous aider à limiter la taille des données capturées afin d'empêcher la génération d'un fichier trop volumineux.<br/>
 
-Comme Wireshark, l'outil permet l'utilisation de nombreux filtres comme par exemple la mise en place d'un filtre pour le port 80, 25 ou 22.<br/>
+Il faut tout de même faire la distinction entre filtres de capture et filtre d'affichage (post-capture).<br/>
 
-Une autre différence notable avec Wireshark est que tcpdump peut être utilisé pour l'analyse et la capture du trafic sur une machine distante (SSH).<br/><br/></p>
+Dans l'exemple ci-dessous, je capture le trafic sans filtre et j'en applique un (d'affichage) au moment de la lecture du fichier.<br/>
+
+<code>tcpdump -i any host 172.18.24.142 -w out.cap</code><br/>
+<code>tcpdump -r file.cap icmp and host 172.18.24.142</code><br/>
+
+Ci-dessous, je capture le trafic et j'y applique un filtre (de capture) directement.<br/>
+
+<code>tcpdump -i eth0 -w file.cap icmp and host 172.18.24.142</code><br/>
+
+Les filtres d'affichages (post-capture) sont utilisés pour rechercher des informations à l'intérieur de données déjà capturées (ou en train d'être capturés comme Wireshark le permet, typiquement, ils peuvent même être modifiés en pleine capture).<br/>
+
+Le filtre de capture, quant à lui, est utilisé comme premier large filtre, le plus souvent pour limiter la taille du fichier contenant les données capturées.<br/>
+
+Avec tcpdump, de nombreux filtres peuvent être mis en place, filtrer un port (25, 22, 80...) ou un protocole précis (arp, icmp, tcp...), un hôte (dst, src, entre tel et tel hôte), un paquet d'une taille spécifique (plus grand que, plus petit que...), et bien d'autres.<br/>
+
+tcpdump peut être utilisé sur une machine à distance via SSH.<br/>
+
+<code>ssh root@basicmailserver.com tcpdump -i any</code><br/>
+
+Nous pouvons sans aucun souci effectuer une capture avec tcpdump, et si besoin analyser celle-ci par la suite avec Wireshark (ou avec tshark par exemple).<br/>
+
+<code>tcpdump -i eth0 -w file.pcap</code><br/><br/>
 
 <div align="center">
 <h2>2. Commandes et utilisation basique de tcpdump</h2>
 
-<div align="center">
-Voici quelques exemples de commandes basiques pour l'utilisation de tcpdump:<br/><br/>
+Cela me paraît pertinent de noter qu'il existe de nombreux "cheatsheet" en ligne (il s'agit en quelque sorte de "document de rappels", contenant le plus souvent une liste de commandes, les plus utiles) ou d'informations importantes, en l'occurrence (s'il s'agit d'un cheatsheet pour tcpdump), pour l'utilisation de tcpdump.<br/>
 
-Afficher la liste des interfaces disponibles:<br/>
-<code>tcpdump -D</code>
+Ce type de document (appelé "cheatsheet") peut être extrêmement utile, aussi bien pour les débutants que pour les plus aguerrit. Nul n'est à l'abri d'un oubli et plus généralement, je n'ai jamais rencontré une seule personne prétendre tout connaitre par coeur, y compris des doctorants. Ces documents permettent de former un aperçu rapide des informations et commandes les plus utiles, le plus souvent pour un programme donné ou une liste de protocoles par exemple.<br/>
 
-<br/>
+Pour vous donner quelques exemples concrets, PacketLife propose de nombreux cheatsheets intéressants.<br/>
 
-Écouter sur toutes les interfaces disponibles:<br/>
-<code>tcpdump -i any</code>
+- Un cheatsheet sur Scapy (https://packetlife.net/media/library/36/scapy.pdf).<br/>
+- Un cheatsheet pour le STP (https://packetlife.net/media/library/11/Spanning_Tree.pdf).<br/>
+- Un cheatsheet sur les VLANs (https://packetlife.net/media/library/20/VLANs.pdf).<br/>
+- Un cheatsheet sur les ports les plus communs (https://packetlife.net/media/library/23/common_ports.pdf).<br/>
 
-<br/>
+Et enfin, pour en revenir au sujet initial, ils proposent également un cheatsheet sur tcpdump (https://packetlife.net/media/library/12/tcpdump.pdf).
 
-Écouter sur une interface spécifique:<br/>
-<code>tcpdump -i eth0</code>
-
-<br/>
-
-Mode verbeux (TTL, longueur totale, vérification de la somme de contrôle des en-têtes IP et ICMP...):<br/>
-<code>tcpdump -v</code>
-
-<br/>
-
-Mode le moins verbeux (idéal pour un rapide aperçu des échanges):<br/>
-<code>tcpdump -q</code>
-
-<br/>
-
-Mise en place d'une limite du nombre de paquets reçue avant arrêt de la capture:<br/>
-<code>tcpdump -c 100</code>
-
-<br/>
-
-Enregistrement dans un fichier (idéal pour analyse par la suite avec Wireshark par exemple):<br/>
-<code>tcpdump -w capture01.pcap</code>
-
-<br/>
-
-Lire un fichier préalablement enregistré:<br/>
-<code>tcpdump -r capture01.pcap</code>
-
-<br/>
-
-Des filtres peuvent être ajoutés pour la lecture:<br/>
-<code>tcpdump -r capture01.pcap arp</code>
-
-<br/>
+Effectuant un tantinet de pratique après avoir vu la théorie.<br/>
 
 <div align="center">
-Voici quelques exemples de basiques d'utilisation des filtres:<br/><br/>
+Voici ci-dessous, quelques exemples de commandes basiques pour l'utilisation de tcpdump.<br/>
 
-Filtre un hôte/une adresse IP:<br/>
-<code>tcpdump -i eth0 -v host 192.168.0.1</code>
+La commande la plus importante (de loin).<br/>
+<code>man tcpdump</code><br/>
 
-<br/>
+Afficher la liste des interfaces disponibles.<br/>
+<code>tcpdump -D</code><br/>
 
-Traffic destiné à une adresse IP bien précise (en destination), similaire au filtre ip.dst de Wireshark:<br/>
-<code>tcpdump -i eth0 -v dst 192.168.0.1</code>
+Écouter sur toutes les interfaces disponibles.<br/>
+<code>tcpdump -i any</code><br/>
 
-<br/>
+Écouter sur une interface spécifique.<br/>
+<code>tcpdump -i eth0</code><br/>
 
-Traffic destiné à une adresse IP bien précise (source), similaire au filtre ip.src de Wireshark:<br/>
-<code>tcpdump -i eth0 -v src 192.168.0.1</code>
+Mode verbeux.<br/>
+<code>tcpdump -v</code><br/>
 
-<br/>
+Il existe plus précisément trois modes, -v, -vv, -vvv (du moins au plus verbeux).
 
-Filtrer un protocole (ARP pour l'exemple):<br/>
-<code>tcpdump -i eth0 arp</code>
+Le mode permettant d'obtenir le résultat le moins verbeux.<br/>
+<code>tcpdump -q</code><br/>
 
-<br/>
+Limiter le nombre de paquets reçus à N paquets.<br/>
+<code>tcpdump -c 100</code><br/>
 
-Filtrer un port (22 pour l'exemple):<br/>
-<code>tcpdump -i eth0 port 22</code>
+Enregistrement du trafic dans un fichier.<br/>
+<code>tcpdump -w file.pcap</code><br/>
 
-<br/>
+Lire un fichier préalablement enregistré.<br/>
+<code>tcpdump -r file.pcap</code><br/>
 
-Filtrer plusieurs conditions:<br/>
-<code>tcpdump -i eth0 -v dst 192.168.0.1 && src 127.0.0.1 icmp</code>
+Des filtres peuvent être ajoutés pour la lecture d'un fichier préalablement enregistré.<br/>
+<code>tcpdump -r file.pcap arp</code><br/>
 
-<br/>
+<div align="center">
+Nous allons voir quelques exemples de basiques d'utilisation des filtres, même si en théorie, le cheatsheet nous permet d'avoir un aperçu relativement complet des filtres pouvant être affectés.<br/><br/>
 
-Sniffer tout un bloc de réseau:<br/>
-<code>tcpdump -i eth0 -v net 192.168.0.1/24</code>
-	
-<br/><br/>
+Filtrer un hôte.<br/>
+<code>tcpdump -i eth0 host 192.168.0.1</code><br/>
+
+Filtrer un échange entre deux hôtes.<br/>
+<code>tcpdump -i eth0 host 10.0.0.1 and host 10.0.0.2</code><br/>
+
+Filtrer un protocole.<br/>
+<code>tcpdump -i eth0 arp</code><br/>
+
+Filtrer un port.<br/>
+<code>tcpdump -i eth0 port 22</code><br/>
+
+Exemple d'un filtre comprenant plusieurs conditions.<br/>
+<code>tcpdump -i eth0 -vvv dst 192.168.0.1 and src 192.168.0.2 icmp</code><br/>
+
+Écoute d'un bloc réseau.<br/>
+<code>tcpdump -i eth0 net 192.168.0.0/24</code><br/><br/>
 	
 <div align="center">
-<h2>3. Démonstration - récupération d'un mot de passe en clair</h2>
+<h2>3. Démonstration - Récupération d'un mot de passe en clair (authentification FTP)</h2>
 
 [![asciicast](https://asciinema.org/a/gzkltiQC0ubgH4NZVebf5hv61.svg)](https://asciinema.org/a/gzkltiQC0ubgH4NZVebf5hv61)
