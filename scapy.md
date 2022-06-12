@@ -212,5 +212,24 @@ Pour continuer notre démonstration initiale, ajoutons une couche 4.<br/>
 <code>urgptr     : ShortField                          = 0               (0)</code><br/>
 <code>options    : TCPOptionsField                     = []              (b'')</code><br/>
 
-Ayant décrit suffisamment d'actions et ayant fourni de nombreuses explications, je ne pense pas qu'il soit nécessaire d'aller plus loin à ce niveau.
+Ayant décrit suffisamment d'actions et ayant fourni de nombreuses explications, je ne pense pas qu'il soit nécessaire d'aller plus loin à ce niveau.<br/>
 
+Comme dit précédemment, nous pouvons sniffer le trafic très simplement avec Scapy.<br/>
+
+<code>x=sniff(filter='icmp', count=2, iface='eth0')</code><br/>
+
+<code>x.summary()</code><br/>
+<code>Ether / IP / ICMP 172.18.24.142 > 172.18.24.143 echo-request 0</code><br/>
+<code>Ether / IP / ICMP 172.18.24.143 > 172.18.24.142 echo-reply 0</code><br/>
+
+tcpdump ou tshark par exemple peuvent également être utilisés.<br/>
+
+Il existe bien d'autres fonctionalitées intéressantes tels que traceroute, arpcachepoison, arping, getmacbyip, etherleak, fuzz, is_promisc (pour vérifier si la cible est en mode promiscuous/promiscuité), rdpcap (pour lire des fichiers pcaps), report_ports...<br/>
+
+Pour aller plus loin avec Scapy, j'ai réalisé un exemple de programme permettant le scan de ports. Il existe plusieurs manières de réaliser un scan de ports, un des cas les plus simples et classiques est la réalisation d'un scan TCP.
+
+Le but est de forger un paquet TCP comportant le drapeau SYN, l'envoyer à l'hôte sur le port que l'on souhaite tester, et si l'on reçoit une réponse comportant les drapeaux SYN et ACK, déclarer le port ouvert.
+
+Voici l'aperçu final du programme, celui-ci est bien entendu disponible sur mon dépôt Github (https://github.com/franckferman/network-elements-synthesis/blob/main/scapy/tcp_scan.py).
+
+[![asciicast](https://asciinema.org/a/KOZ73YzWUa6Hc9RG5ldZ28DqR.svg)](https://asciinema.org/a/KOZ73YzWUa6Hc9RG5ldZ28DqR)
