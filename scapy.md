@@ -228,8 +228,10 @@ Il existe bien d'autres fonctionalitées intéressantes tels que traceroute, arp
 
 Pour aller plus loin avec Scapy, j'ai réalisé un exemple de programme permettant le scan de ports. Il existe plusieurs manières de réaliser un scan de ports, un des cas les plus simples et classiques est la réalisation d'un scan TCP.
 
-Le but est de forger un paquet TCP comportant le drapeau SYN, l'envoyer à l'hôte sur le port que l'on souhaite tester, et si l'on reçoit une réponse comportant les drapeaux SYN et ACK, déclarer le port ouvert.
+Le but est de forger un paquet TCP comportant le drapeau SYN, l'envoyer à l'hôte sur le port que l'on souhaite tester, et si l'on reçoit une réponse comportant les drapeaux SYN et ACK, déclarer le port ouvert. Si le serveur répond avec un RST, c'est que le port est fermé.
 
 Voici l'aperçu final du programme, celui-ci est bien entendu disponible sur mon dépôt Github (https://github.com/franckferman/network-elements-synthesis/blob/main/scapy/tcp_scan.py).
 
 [![asciicast](https://asciinema.org/a/KOZ73YzWUa6Hc9RG5ldZ28DqR.svg)](https://asciinema.org/a/KOZ73YzWUa6Hc9RG5ldZ28DqR)
+
+Pour conclure, nous avons pu voir que le potentiel de Scapy est considérable et il repose majoritairement sur les compétences de l'utilisateur qui l'utilise.
