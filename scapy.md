@@ -95,7 +95,19 @@ David Bombal, dans l'une de ses vidéos, montre comment il est possible, avec Sc
 - Injection d'une fausse route — https://github.com/davidbombal/scapy/blob/main/bgp-add-fake-routes.py.<br/>
 - Réalisation d'une attaque par déni de service — https://github.com/davidbombal/scapy/blob/main/bgp-dos-reset-neighbors.py.<br/>
 
-Ces deux exemples montrent la puissance de Scapy, si celui-ci est utilisé avec une suffisamment bonne maitrise de l'outil et du réseau.</p><br/>
+Voici quelques exemples d'incroyables outils réalisés par des membres de la communauté avec Scapy:<br/>
+
+- ISF, Industrial Control System Exploitation Framework (https://github.com/dark-lbp/isf): an exploitation framework based on Python (similar to metasploit framework). 
+- wifiphisher (https://github.com/wifiphisher/wifiphisher): create rogue access point (un outil que j'utilise et j'apprécie particulièrement).<br/>
+- ufonet (https://github.com/epsylon/ufonet): create your own botnet to send untraceable DDoS attacks<br/>
+- trackerjacker (https://github.com/calebmadrigal/trackerjacker): Maps and tracks Wi-Fi networks and devices through raw 802.11 monitoring. Like nmap for mapping wifi networks you're not connected to, plus device tracking.<br/>
+- fenrir (https://github.com/Orange-Cyberdefense/fenrir-ocd): bypass wired 802.1x protection.<br/>
+- net-creds (https://github.com/DanMcInerney/net-creds): sniff and catch all sensitive data on an interface.<br/>
+- Responder (https://github.com/SpiderLabs/Responder): LLMNR, NBT-NS and MDNS poisoner.<br/>
+- sshame (https://github.com/HynekPetrak/sshame): tool to brute force SSH public-key authentication.<br/>
+- TorPylle (https://github.com/cea-sec/TorPylle): a Python / Scapy implementation of the OR (TOR) protocol.<br/>
+
+Ces exemples montrent la puissance de Scapy, si celui-ci est utilisé avec une suffisamment bonne maitrise de l'outil et du réseau.</p><br/>
 
 <div align="center">
 <h2>3. Utilisation de Scapy</h2>
@@ -200,4 +212,5 @@ Pour continuer notre démonstration initiale, ajoutons une couche 4.<br/>
 <code>urgptr     : ShortField                          = 0               (0)</code><br/>
 <code>options    : TCPOptionsField                     = []              (b'')</code><br/>
 
-Ayant décrit suffisamment d'actions et ayant fourni de nombreuses explications, je ne pense pas qu'il soit nécessaire d'aller plus loin.
+Ayant décrit suffisamment d'actions et ayant fourni de nombreuses explications, je ne pense pas qu'il soit nécessaire d'aller plus loin à ce niveau.
+
