@@ -19,9 +19,9 @@
 <details>
   <summary>Table of Contents</summary>
   <ol>
-	  <li><a href="#1-scapy-overview">Présentation de Scapy</a></li>
-    <li><a href="#2-strong-community">Une communauté grandissante d'experts</a></li>
-      <li><a href="#3-scapy-usage">Utilisation de Scapy</a></li>
+	  <li><a href="#1-présentation-de-scapy=">Présentation de Scapy</a></li>
+    <li><a href="#2-une-communauté-grandissante-dexperts=">Une communauté grandissante d'experts</a></li>
+      <li><a href="#3-utilisation-de-scapy=">Utilisation de Scapy</a></li>
   </ol>
 </details>
 
