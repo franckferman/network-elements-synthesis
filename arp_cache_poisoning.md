@@ -73,5 +73,5 @@ Il est bon de noter que de nombreux outils existent pour réaliser ce type d'att
 
 <div align="center">
   <a href="https://youtu.be/q3BvbugyMuQ">
-    <img src="https://raw.githubusercontent.com/franckferman/network-elements-synthesis/main/img/thumbnail-mitm_arp.png" alt="Skull" width="128" height="128">
+    <img src="https://raw.githubusercontent.com/franckferman/network-elements-synthesis/main/img/thumbnail-mitm_arp.png" alt="Skull" width="400" height="400">
   </a>
