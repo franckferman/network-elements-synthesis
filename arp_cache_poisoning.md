@@ -68,10 +68,14 @@ Il est bon de noter que de nombreux outils existent pour réaliser ce type d'att
 <div align="center">
 <h2>2. Cas pratique</h2>
 
-<p>Attention, je tiens à préciser que cette vidéo (https://youtu.be/q3BvbugyMuQ) est une pure démonstration, en rien une quelconque un tutoriel.</p><br/>
+<p>Pour la démonstration, j'ai réalisé une attaque de ce type avec Bettercap, sur un LAN contenant, une machine sous Parrot (attaquant), une pfSense (routeur) ainsi qu'une Windows entreprise (victime).<br/>
+
+Attention, je tiens à préciser que cette vidéo (https://youtu.be/q3BvbugyMuQ) n'est qu'une pure démonstration (en rien un tutoriel).</p><br/>
 
 
 <div align="center">
   <a href="https://youtu.be/q3BvbugyMuQ">
     <img src="https://raw.githubusercontent.com/franckferman/network-elements-synthesis/main/img/thumbnail-mitm_arp.png" alt="thumbnail-mitm_arp" width="700" height="400">
   </a>
+
+<br/><br/>
