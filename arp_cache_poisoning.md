@@ -18,7 +18,7 @@
   <summary>Table of Contents</summary>
   <ol>
 	<li><a href="#1-introduction">Introduction</a></li>
-    <li><a href="#2-demo">Démonstration</a></li>
+    <li><a href="#2-démonstration">Démonstration</a></li>
   </ol>
 </details>
 
@@ -66,7 +66,7 @@ Pour pouvoir les intercepter de manière transparente, l'attaquant doit simpleme
 Il est bon de noter que de nombreux outils existent pour réaliser ce type d'attaque (Ettercap, Bettercap, arpspoof, Scapy...)<br/>
 
 <div align="center">
-<h2>2. Cas pratique</h2>
+<h2>2. Démonstration</h2>
 
 <p>Pour la démonstration, j'ai réalisé une attaque de ce type avec Bettercap, sur un LAN contenant, une machine sous Parrot (attaquant), une pfSense (routeur) ainsi qu'une Windows entreprise (victime).<br/>
 
