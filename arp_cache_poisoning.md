@@ -70,4 +70,4 @@ Il est bon de noter que de nombreux outils existent pour réaliser ce type d'att
 
 <p>Attention, je tiens à préciser que cette vidéo est une pure démonstration, en rien une quelconque un tutoriel.</p><br/>
 
-[![IMAGE_ALT](https://img.youtube.com/vi/q3BvbugyMuQ/0.jpg)](https://youtu.be/q3BvbugyMuQ)
+[![IMAGE_ALT](../img/thumbnail-mitm_arp.png)](https://youtu.be/q3BvbugyMuQ)
