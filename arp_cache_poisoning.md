@@ -18,7 +18,7 @@
   <summary>Table of Contents</summary>
   <ol>
 	<li><a href="#1-introduction">Introduction</a></li>
-    <li><a href="#2-cas_pratique">Cas pratique</a></li>
+    <li><a href="#2-demo">Démonstration</a></li>
   </ol>
 </details>
 
