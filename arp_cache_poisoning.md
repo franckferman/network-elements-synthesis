@@ -18,7 +18,7 @@
   <summary>Table of Contents</summary>
   <ol>
 	<li><a href="#1-introduction">Introduction</a></li>
-    <li><a href="#2-cas_pratique"></a></li>
+    <li><a href="#2-cas_pratique">Cas pratique</a></li>
   </ol>
 </details>
 
@@ -68,6 +68,10 @@ Il est bon de noter que de nombreux outils existent pour réaliser ce type d'att
 <div align="center">
 <h2>2. Cas pratique</h2>
 
-<p>Attention, je tiens à préciser que cette vidéo est une pure démonstration, en rien une quelconque un tutoriel.</p><br/>
+<p>Attention, je tiens à préciser que cette vidéo (https://youtu.be/q3BvbugyMuQ) est une pure démonstration, en rien une quelconque un tutoriel.</p><br/>
 
-[![IMAGE_ALT](../img/thumbnail-mitm_arp.png)](https://youtu.be/q3BvbugyMuQ)
+
+<div align="center">
+  <a href="https://youtu.be/q3BvbugyMuQ">
+    <img src="https://raw.githubusercontent.com/franckferman/network-elements-synthesis/main/img/thumbnail-mitm_arp.png" alt="Skull" width="128" height="128">
+  </a>
