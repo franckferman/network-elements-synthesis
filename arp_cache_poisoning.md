@@ -44,8 +44,8 @@ Quand une machine A souhaite communiquer avec une machine B sur un réseau, la m
 
 Si la correspondance n'est pas trouvée, une diffusion (broadcast) est émise, permettant de demander l'information aux machines sur le réseau, l'échange ressemble à cela.
 
-<code>Request who-has 172.18.24.142 tell 172.18.24.143</code>
-<code>Reply 172.18.24.142 is-at 00:15:5d:ea:57:71</code>
+<code>Request who-has 172.18.24.142 tell 172.18.24.143</code><br/>
+<code>Reply 172.18.24.142 is-at 00:15:5d:ea:57:71</code><br/>
 
 L'ordinateur va demander clairement, « quelle est l’adresse MAC correspondant à l’adresse IP adresseIP ? Répondez à monAdresseIP » (who-has). Puisqu’il s’agit d’un broadcast, tous les ordinateurs du segment vont recevoir la requête et en observant son contenu, ils pourront déterminer quelle est l’adresse IP sur laquelle porte la recherche.<br/>
 
@@ -57,14 +57,17 @@ Le problème, réside dans la façon avec laquelle ce protocole a été pensé e
 
 Il n'est pas nécessaire d'attendre qu'une machine vous demande votre adresse mac. Vous pouvez très bien la lui communiquer à n'importe quel moment en lui envoyant un simple packet ARP reply. Cela mettra à jour son cache ARP. Maintenant, imaginez que quelqu'un modélise et envoie un packet ARP Reply à une machine avec de fausses informations... C'est à ce moment que l'arp cache poisoning intervient.<br/>
 
-On pourrait donc logiquement imaginer qu'un hacker se fasse passer pour une machine qu'il n'est pas (usurpation) et de ce fait intercepte le dialogue entre deux
-hôtes.<br/>
+On pourrait donc logiquement imaginer qu'un hacker se fasse passer pour une machine qu'il n'est pas (usurpation) et de ce fait intercepte le dialogue entre deux hôtes.<br/>
 
 Mettons un exemple concret. Si nous corrompons le cache ARP de la victime en y inscrivant la correspondance entre l'adresse mac de l'attaquant et l'adresse ip du routeur, tous les packets qui transitent de la machine cible au routeur seraient alors interceptés par l'attaquant. Cela permettrait notamment d'intercepter les requêtes émises sur internet par la machine cible. Mais il reste tout de même un problème à résoudre pour l'attaquant. Les packets émis vont en effet passer par la machine du hacker mais ils ne seront pas reroutés vers la bonne machine. Ainsi, la machine cible ne pourra plus envoyer de paket au delà de son réseau local.<br/> 
 
-Pour pouvoir les intercepter de manière transparente, l'attaquant doit activer le mode routage ip sur sa machine. Cela va permettre de rerouter l'intégralité des packets dont l'adresse ip de destination est différente de la sienne. Que ce soit sous Windows ou Linux, cela s'effectue très facilement (la commande "echo 1>/proc/sys/net/ipv4/ip_forward" par exemple suffit sous Linux.<br/><br/>
+Pour pouvoir les intercepter de manière transparente, l'attaquant doit simplement activer le mode routage ip sur sa machine. Cela va permettre de rerouter l'intégralité des packets dont l'adresse ip de destination est différente de la sienne. Que ce soit sous Windows ou Linux, cela s'effectue très facilement.<br/>
+
+Il est bon de noter que de nombreux outils existent pour réaliser ce type d'attaque (Ettercap, Bettercap, arpspoof...)<br/>
 
 <div align="center">
 <h2>2. Cas pratique</h2>
 
-<p></p><br/>
+<p>Attention, je tiens à préciser que cette vidéo est une pure démonstration, en rien une quelconque un tutoriel.</p><br/>
+
+[![IMAGE_ALT](https://img.youtube.com/vi/q3BvbugyMuQ/0.jpg)](https://youtu.be/q3BvbugyMuQ)
