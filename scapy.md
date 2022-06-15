@@ -236,12 +236,12 @@ Voici l'aperçu final du programme, celui-ci est bien entendu disponible sur mon
 	
 Pour l'exemple, j'ai également réalisé un script Python (utilisant la bibliothèque Scapy) permettant de réaliser une attaque de type MiTM (pour plus d'information sur cette attaque, voir https://github.com/franckferman/network-elements-synthesis/blob/main/arp_cache_poisoning.md dans ce repository Github).<br/>
 	
-Vous trouverez le lien de mon script sur mon repository Github (https://github.com/franckferman/network-elements-synthesis/blob/main/scapy/arpcachepoison.py) et la vidéo de démonstration (PoC) ci-dessous (https://youtu.be/BzqPd6cVDNY).<br/>
+Vous trouverez le lien de mon script sur mon repository Github (https://github.com/franckferman/network-elements-synthesis/blob/main/scapy/arpcachepoison.py) et la vidéo de démonstration (PoC) ci-dessous (https://youtu.be/BzqPd6cVDNY).<br/></br>
 	
 <div align="center">
   <a href="https://youtu.be/BzqPd6cVDNY">
     <img src="https://raw.githubusercontent.com/franckferman/network-elements-synthesis/main/img/thumbnail-scapy-mitm_arp.jpg" alt="thumbnail-mitm_arp" width="700" height="400">
-  </a><br/>
+  </a><br/></br>
 
 Pour conclure, nous avons pu voir que le potentiel de Scapy est considérable et il repose majoritairement sur les compétences de l'utilisateur qui l'utilise.</p></br>
 
