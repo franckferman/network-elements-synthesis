@@ -226,12 +226,23 @@ tcpdump ou tshark par exemple peuvent également être utilisés.<br/>
 
 Il existe bien d'autres fonctionalitées intéressantes tels que traceroute, arpcachepoison, arping, getmacbyip, etherleak, fuzz, is_promisc (pour vérifier si la cible est en mode promiscuous/promiscuité), rdpcap (pour lire des fichiers pcaps), report_ports...<br/>
 
-Pour aller plus loin avec Scapy, j'ai réalisé un exemple de programme permettant le scan de ports. Il existe plusieurs manières de réaliser un scan de ports, un des cas les plus simples et classiques est la réalisation d'un scan TCP.
+Pour aller plus loin avec Scapy, j'ai réalisé un exemple de programme permettant le scan de ports. Il existe plusieurs manières de réaliser un scan de ports, un des cas les plus simples et classiques est la réalisation d'un scan TCP.<br/>
 
-Le but est de forger un paquet TCP comportant le drapeau SYN, l'envoyer à l'hôte sur le port que l'on souhaite tester, et si l'on reçoit une réponse comportant les drapeaux SYN et ACK, déclarer le port ouvert. Si le serveur répond avec un RST, c'est que le port est fermé.
+Le but est de forger un paquet TCP comportant le drapeau SYN, l'envoyer à l'hôte sur le port que l'on souhaite tester, et si l'on reçoit une réponse comportant les drapeaux SYN et ACK, déclarer le port ouvert. Si le serveur répond avec un RST, c'est que le port est fermé.<br/>
 
-Voici l'aperçu final du programme, celui-ci est bien entendu disponible sur mon dépôt Github (https://github.com/franckferman/network-elements-synthesis/blob/main/scapy/tcp_scan.py).
+Voici l'aperçu final du programme, celui-ci est bien entendu disponible sur mon dépôt Github (https://github.com/franckferman/network-elements-synthesis/blob/main/scapy/tcp_scan.py).<br/>
 
-[![asciicast](https://asciinema.org/a/KOZ73YzWUa6Hc9RG5ldZ28DqR.svg)](https://asciinema.org/a/KOZ73YzWUa6Hc9RG5ldZ28DqR)
+[![asciicast](https://asciinema.org/a/KOZ73YzWUa6Hc9RG5ldZ28DqR.svg)](https://asciinema.org/a/KOZ73YzWUa6Hc9RG5ldZ28DqR)<br/>
+	
+Pour l'exemple, j'ai également réalisé un script Python (utilisant la bibliothèque Scapy) permettant de réaliser une attaque de type MiTM (pour plus d'information sur cette attaque, voir https://github.com/franckferman/network-elements-synthesis/blob/main/arp_cache_poisoning.md dans ce repository Github).<br/>
+	
+Vous trouverez le lien de mon script sur mon repository Github (https://github.com/franckferman/network-elements-synthesis/blob/main/scapy/arpcachepoison.py) et la vidéo de démonstration (PoC) ci-dessous (https://youtu.be/BzqPd6cVDNY).<br/>
+	
+<div align="center">
+  <a href="https://youtu.be/BzqPd6cVDNY">
+    <img src="https://raw.githubusercontent.com/franckferman/network-elements-synthesis/main/img/thumbnail-scapy-mitm_arp.png" alt="thumbnail-mitm_arp" width="700" height="400">
+  </a><br/>
 
 Pour conclure, nous avons pu voir que le potentiel de Scapy est considérable et il repose majoritairement sur les compétences de l'utilisateur qui l'utilise.</p></br>
+
+<br/><br/>
