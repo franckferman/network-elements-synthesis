@@ -240,7 +240,7 @@ Vous trouverez le lien de mon script sur mon repository Github (https://github.c
 	
 <div align="center">
   <a href="https://youtu.be/BzqPd6cVDNY">
-    <img src="https://raw.githubusercontent.com/franckferman/network-elements-synthesis/main/img/thumbnail-scapy-mitm_arp.png" alt="thumbnail-mitm_arp" width="700" height="400">
+    <img src="https://raw.githubusercontent.com/franckferman/network-elements-synthesis/main/img/thumbnail-scapy-mitm_arp.jpg" alt="thumbnail-mitm_arp" width="700" height="400">
   </a><br/>
 
 Pour conclure, nous avons pu voir que le potentiel de Scapy est considérable et il repose majoritairement sur les compétences de l'utilisateur qui l'utilise.</p></br>
