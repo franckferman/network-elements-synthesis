@@ -4,7 +4,7 @@ ICS (Industrial Control System) et Scada (Supervisory Control and Data Acquisiti
 
 Scada est en fait, en quelque sorte une des composantes de l'ICS.<br>
 
-Pour commencer, qu'est-ce qu'un ICS ?<br>
+- Pour commencer, qu'est-ce qu'un ICS ?<br>
 
 L'ICS désigne les systèmes industriels de manière générale.<br>
 
